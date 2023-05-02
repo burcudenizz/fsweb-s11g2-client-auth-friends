@@ -1,20 +1,32 @@
 import React from "react";
 import { useState } from "react";
+import { axiosWithAuth } from "./AxiosAuth";
+import { useHistory } from "react-router-dom";
+
 export default function Login() {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: "workintech",
+    password: "wecandoit",
   });
 
   function handleChange(event) {
     setFormData({
       ...formData,
-      [event.target.value]: event.target.value,
+      [event.target.name]: event.target.value,
     });
   }
+  const history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();
+    axiosWithAuth()
+      .post(`/api/login`, formData)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        history.push("/friends");
+        console.log("formData ulaştı", response.data);
+      })
+      .catch((err) => console.log("Error!", err));
   }
 
   return (
