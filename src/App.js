@@ -14,7 +14,7 @@ function App() {
           <Link to="/login">
             <button className="bg-black text-white p-8 m-4">LOGIN</button>
           </Link>
-          <Link to="/friends">
+          <Link to="/friendlist">
             <button className="bg-black text-white p-8 m-4">FRIENDLIST</button>
           </Link>
           <Link to="/addfriend">
