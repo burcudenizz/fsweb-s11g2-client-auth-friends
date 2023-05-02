@@ -4,6 +4,7 @@ import FriendList from "./components/FriendList";
 import Login from "./components/Login";
 import { Route, Link, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -20,9 +21,8 @@ function App() {
           <Link to="/addfriend">
             <button className="bg-black text-white p-8 m-4">ADDFRIEND</button>
           </Link>
-          <Link to="/logout">
-            <button className="bg-black text-white p-8 m-4">LOGOUT</button>
-          </Link>
+
+          <Logout />
         </div>
       </div>
       <Switch>
